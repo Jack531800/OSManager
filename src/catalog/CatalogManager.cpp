@@ -1,7 +1,3 @@
-//
-// Created by 86183 on 2022/12/24.
-//
-
 #include "CatalogManager.h"
 
 bool IsInMaster(dirNode* p);
@@ -12,7 +8,7 @@ void Transfer_Out_File(dirNode* p);
 void Create_File(dirNode* p);
 void Delete_File(dirNode* p);
 
-void mkdir(std::char dirName[]) {
+void mkdir(char dirName[]) {
 	int flag;
 	dirNode* p, * q;
 	q = new dirNode;
@@ -58,7 +54,7 @@ void mkdir(std::char dirName[]) {
 	}
 }
 
-void rmdir(std::char dirName[]) {
+void rmdir(char dirName[]) {
 	dirNode* p, * q;
 	int flag = 0;
 	p = workDir->sub;
@@ -104,7 +100,7 @@ void rmdir(std::char dirName[]) {
 	}
 }
 
-void create_dentry(std::char fileName[]) {
+void create_dentry(char fileName[]) {
 	int flag;
 	dirNode* p, * q;
 	q = new dirNode;
@@ -161,7 +157,7 @@ void create_dentry(std::char fileName[]) {
 	}
 }
 
-void rmfile(std::char fileName[]) {
+void rmfile(char fileName[]) {
 	dirNode* p, * q;
 	int flag = 0;
 	p = workDir->sub;
