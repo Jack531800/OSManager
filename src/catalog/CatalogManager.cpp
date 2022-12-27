@@ -3,30 +3,8 @@
 //
 
 #include "CatalogManager.h"
-using namespace std;
-#define  _WINSOCK_DEPRECATED_NO_WARNINGS 1
-#define _CRT_SECURE_NO_WARNINGS 1
-typedef struct node
-{
-	char name[50];
-	int type;
-	struct tm t;
-	struct node* next;
-	struct node* sub;
-	struct node* father;
-	int size;
-	char* str;
-	int addr;
-	WCHAR PCName[255];//直接使用wchar类型定义
-	WCHAR UserName[255];
-}dirNode;
-dirNode* workDir;
-dirNode root;
-char path[100];
-bool IsInMaster(dirNode* p)
-{
-	return false;
-}
+
+bool IsInMaster(dirNode* p);
 void Write_File(dirNode* p);
 void Read_File(dirNode* p);
 void Transfer_In_File(dirNode* p);
@@ -34,7 +12,7 @@ void Transfer_Out_File(dirNode* p);
 void Create_File(dirNode* p);
 void Delete_File(dirNode* p);
 
-void mkdir(char dirName[]) {
+void mkdir(std::char dirName[]) {
 	int flag;
 	dirNode* p, * q;
 	q = new dirNode;
@@ -80,7 +58,7 @@ void mkdir(char dirName[]) {
 	}
 }
 
-void rmdir(char dirName[]) {
+void rmdir(std::char dirName[]) {
 	dirNode* p, * q;
 	int flag = 0;
 	p = workDir->sub;
@@ -126,7 +104,7 @@ void rmdir(char dirName[]) {
 	}
 }
 
-void create_dentry(char fileName[]) {
+void create_dentry(std::char fileName[]) {
 	int flag;
 	dirNode* p, * q;
 	q = new dirNode;
@@ -183,7 +161,7 @@ void create_dentry(char fileName[]) {
 	}
 }
 
-void rmfile(char fileName[]) {
+void rmfile(std::char fileName[]) {
 	dirNode* p, * q;
 	int flag = 0;
 	p = workDir->sub;
